@@ -1,0 +1,41 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+html { scroll-behavior: smooth; background: #080808; color-scheme: dark; }
+body { background: transparent; color: #e9ebef; font-family: var(--font-body), system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+::selection { background: #4fd8ff55; }
+:focus-visible { outline: 2px solid #4fd8ff; outline-offset: 3px; border-radius: 6px; }
+.glass { background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015)); border: 1px solid #22252b; backdrop-filter: blur(14px); }
+.grad-text { background: linear-gradient(100deg, #4fd8ff, #8b7bff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+@media (hover: hover) and (pointer: fine) { .has-cursor, .has-cursor a, .has-cursor button { cursor: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+.scene { perspective: 700px; animation: drift 7s ease-in-out infinite; }
+.cube { position: relative; transform-style: preserve-3d; animation: spin 18s linear infinite; }
+.cube i { position: absolute; inset: 0; border: 1px solid rgba(79,216,255,.35); background: rgba(139,123,255,.06); }
+.orb { animation: orb 16s ease-in-out infinite; will-change: transform; }
+@keyframes spin { to { transform: rotateX(360deg) rotateY(360deg); } }
+@keyframes drift { 50% { transform: translateY(-18px); } }
+@keyframes orb { 50% { transform: translate(50px, -36px) scale(1.15); } }
+@media (prefers-reduced-motion: reduce) { .scene, .cube, .orb { animation: none; } }
+.bg-grid { background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(70% 60% at 50% 40%, #000, transparent); -webkit-mask-image: radial-gradient(70% 60% at 50% 40%, #000, transparent); }
+.marq { overflow: hidden; white-space: nowrap; }
+.marq > div { display: inline-block; animation: marq 40s linear infinite; will-change: transform; }
+@keyframes marq { to { transform: translateX(-50%); } }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) { .marq > div { animation: none; } }
+.has-cursor input, .has-cursor textarea { cursor: none; }
+.conic { background: conic-gradient(from 0deg, transparent 0 55%, #4fd8ff, #8b7bff, transparent); animation: rot 7s linear infinite; will-change: transform; }
+@keyframes rot { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .conic { animation: none; } }
+.has-cursor * { cursor: none !important; }
+.cur-blob, .cur-lab { position: fixed; left: 0; top: 0; pointer-events: none; will-change: transform; }
+.cur-blob { z-index: 101; width: 20px; height: 20px; margin: -10px; border-radius: 50%; background: linear-gradient(135deg, #4fd8ff, #8b7bff); transition: opacity .25s, border-radius .25s; }
+.cur-blob[data-s="link"] { opacity: .35; }
+.cur-blob[data-s="text"] { border-radius: 3px; }
+.cur-lab { z-index: 102; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #fff; opacity: 0; transition: opacity .2s; }
+.page-in { transform-origin: 50% 50vh; animation: pageIn .6s cubic-bezier(.2,.8,.2,1) backwards; overflow-x: clip; }
+@keyframes pageIn { from { opacity: 0; transform: scale(1.08); } }
+html[data-tr="1"] .glass { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(18,19,22,.92); }
+html[data-tr="1"] .marq > div, html[data-tr="1"] .orb, html[data-tr="1"] .scene, html[data-tr="1"] .cube, html[data-tr="1"] .conic { animation-play-state: paused; }
+@keyframes shakeA { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-7px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(4px); } }
+@keyframes shakeB { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-7px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(4px); } }
