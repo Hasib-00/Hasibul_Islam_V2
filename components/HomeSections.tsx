@@ -13,7 +13,7 @@ const focus: [string, string][] = [
   ["Data Science", "Turning raw data into insight that supports decisions."],
   ["Deep Learning", "Neural networks and the architectures behind modern AI."],
   ["Data Analytics", "Exploring, cleaning and communicating what the data says."],
-  ["Software Development", "Native Android apps in Kotlin with clean architecture and Firebase."],
+  ["Software Development", "The engineering base: clean architecture, REST APIs and real-time data."],
 ];
 const H = ({ eyebrow, title }: { eyebrow: string; title: string }) => (
   <div className="mb-10"><p className="text-sm uppercase tracking-[.2em] text-cyan">{eyebrow}</p><h2 className="mt-3 font-display text-4xl font-semibold tracking-tight md:text-5xl">{title}</h2></div>);
@@ -25,14 +25,14 @@ function Count({ to }: { to: number }) {
 }
 
 export default function HomeSections() {
-  const items = skillGroups.flatMap((g) => g.items), techs = new Set(projects.flatMap((p) => p.tech)).size;
+  const items = [...(skillGroups.find((g) => g.name.startsWith("AI"))?.items ?? []), "Python", "SQL", "Git", "GitHub", "Clean Architecture", "REST APIs"], techs = new Set(projects.flatMap((p) => p.tech)).size;
   const nums: [typeof Layers, number, string][] = [[Layers, projects.length, "Projects built"], [Code2, techs, "Technologies used"], [Award, certifications.length, "Certified training"], [GraduationCap, education.length, "Academic programmes"]];
   return (
     <div className="relative">
       <div className="marq border-y border-edge py-5" aria-hidden><div>{[...items, ...items].map((s, i) => <span key={i} className="mx-6 font-display text-2xl text-white/25">{s}</span>)}</div></div>
 
       <section className="mx-auto max-w-6xl px-6 py-28">
-        <Reveal><H eyebrow="Focus" title="Where I am heading" /></Reveal>
+        <Reveal><H eyebrow="Focus" title="Heading into AI and Data Science" /></Reveal>
         <div className="grid gap-5 md:grid-cols-3">
           {focus.map(([t, d], i) => (
             <Reveal key={t} i={i}><Tilt max={6} className="h-full"><div className="glass h-full rounded-3xl p-7"><span className="font-display text-sm text-cyan">0{i + 1}</span><h3 className="mt-3 font-display text-xl">{t}</h3><p className="mt-2 text-mute">{d}</p></div></Tilt></Reveal>))}

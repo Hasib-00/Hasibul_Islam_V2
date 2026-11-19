@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Reveal, PageHead, Wrap } from "@/components/Page";
 import { education } from "@/lib/data";
-export const metadata: Metadata = { title: "Education" };
+export const metadata = pageMeta({ title: "Education – BSc in AI & Data Science", description: "Md Hasibul Islam studies BSc in Artificial Intelligence and Data Science at Green University of Bangladesh, after a Diploma in Computer Science & Technology.", path: "/education" });
 export default function Education() {
   return (<><PageHead title="Education" lead="Where I am studying and what came before." />
     <Wrap><ol className="relative space-y-6 border-l border-edge pl-8">

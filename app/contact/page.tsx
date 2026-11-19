@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { PageHead, Wrap } from "@/components/Page";
 import ContactForm from "@/components/ContactForm";
 import { profile } from "@/lib/data";
-export const metadata: Metadata = { title: "Contact" };
+export const metadata = pageMeta({ title: "Contact – AI & Data Science Collaboration", description: "Contact Md Hasibul Islam, AI and Data Science student in Dhaka, for collaboration, internships and conversations about machine learning and data science.", path: "/contact" });
 export default function Contact() {
   const L = [[Mail, profile.email, `mailto:${profile.email}`], [Linkedin, "LinkedIn", profile.linkedin], [Github, "GitHub", profile.github]] as const;
   return (<><PageHead title="Get in touch" lead="Open to collaboration, internships and conversations about AI and data." />

@@ -24,7 +24,7 @@ export default function ContactForm() {
     setErrs(er); if (Object.keys(er).length) { setN((x) => x + 1); setState("idle"); return; }
     setState("sending");
     try {
-      const r = await fetch("https://formspree.io/f/mgakypnr", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(v) });
+      const r = await fetch("https://formspree.io/f/YOUR_FORM_ID", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(v) });
       const d = await r.json().catch(() => ({})); if (!r.ok) throw new Error(d.error || "Message not sent. Email me directly instead.");
       setState("ok"); setV(empty); // cleared only after a successful send
     } catch (x) { setMsg((x as Error).message || "Message not sent. Email me directly instead."); setState("fail"); /* text stays */ }
@@ -51,7 +51,7 @@ export default function ContactForm() {
       <div aria-live="polite" className="min-h-6">
         <AnimatePresence mode="wait">
           {state === "ok" && <motion.p key="ok" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-2 text-cyan">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" opacity=".3" /><motion.path d="M7 12.5l3.2 3.2L17 9" initial={{ pathLength: 0 } as any} animate={{ pathLength: 1 } as any} transition={{ duration: .6, delay: .15 }} /></svg>Message sent. I will reply by email.</motion.p>}
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" opacity=".3" /><motion.path d="M7 12.5l3.2 3.2L17 9" initial={{ pathLength: 0 } as never} animate={{ pathLength: 1 } as never} transition={{ duration: .6, delay: .15 }} /></svg>Message sent. I will reply by email.</motion.p>}
           {state === "fail" && <motion.p key="fail" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="text-red-400">{msg} Your text is still here, so you can try again.</motion.p>}
         </AnimatePresence></div>
     </form>);

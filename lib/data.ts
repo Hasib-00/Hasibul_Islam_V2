@@ -7,7 +7,7 @@ export const profile = {
   github: "https://github.com/Hasib-00",
   cv: "/Md-Hasibul-Islam-CV.pdf",
   roles: ["Artificial Intelligence", "Machine Learning", "Data Science", "Deep Learning", "Data Analytics", "Software Development"],
-  intro: "I build software and study how machines learn from data. My foundation is native Android engineering; my direction is artificial intelligence, machine learning and data science.",
+  intro: "I am an Artificial Intelligence and Data Science student in Dhaka, Bangladesh, fascinated by how machines learn from data. I am studying machine learning, deep learning and data analytics, with the goal of building intelligent systems that turn raw data into insight and help people make better decisions.",
 };
 
 export const education = [
@@ -16,18 +16,18 @@ export const education = [
 ];
 
 export const skillGroups = [
+  { name: "AI & Data Science focus", items: ["Artificial intelligence", "Machine learning", "Deep learning", "Data science", "Data analytics"] },
   { name: "Languages", items: ["Python", "Kotlin", "XML", "SQL (MySQL, SQLite)"] },
-  { name: "Software development", items: ["Android Studio", "Jetpack Compose", "Retrofit", "Room Database", "Firebase", "MVVM", "Clean Architecture"] },
+  { name: "Software engineering", items: ["Android Studio", "Jetpack Compose", "Retrofit", "Room Database", "Firebase", "MVVM", "Clean Architecture"] },
   { name: "Collaboration", items: ["Git", "GitHub", "Leadership", "Team collaboration", "Time management", "Client communication"] },
-  { name: "Learning focus", items: ["Machine learning", "Deep learning", "Data science", "Data analytics"] },
 ];
 
 export type Project = { slug: string; title: string; kind: string; summary: string; points: string[]; tech: string[] };
 export const projects: Project[] = [
-  { slug: "social-chat", title: "Mini Social Media & Real-Time Chat", kind: "Mobile", summary: "Android social app with real-time messaging, offline caching and a clean, layered architecture.",
+  { slug: "social-chat", title: "Mini Social Media & Real-Time Chat", kind: "Mobile", summary: "Real-time social and messaging app with offline caching and a clean, layered architecture.",
     points: ["Kotlin and XML interface that is responsive and user-centric.", "Firebase Authentication, Firestore and Storage for user management, real-time messaging and media.", "Room database for structured local caching and offline access.", "MVVM with Clean Architecture for a scalable, maintainable codebase.", "Retrofit, REST APIs and JSON for network communication."],
     tech: ["Kotlin", "XML", "MVVM", "Firebase", "Firestore", "Room", "Retrofit"] },
-  { slug: "location-sharing", title: "Location Sharing App", kind: "Mobile", summary: "Native Android app for real-time location sharing and map visualization with battery-aware tracking.",
+  { slug: "location-sharing", title: "Location Sharing App", kind: "Mobile", summary: "Real-time location sharing and map visualization app with battery-aware tracking.",
     points: ["Continuous background tracking with the Fused Location Provider, tuned for battery usage.", "Firebase or socket-based backend for real-time data sync.", "MVVM, Coroutines/Flow and dependency injection (Hilt or Koin).", "Material Design interface with Google Maps SDK."],
     tech: ["Kotlin", "MVVM", "Coroutines", "Flow", "Google Maps SDK", "Firebase", "Jetpack"] },
   { slug: "news-app", title: "News Application", kind: "Data & APIs", summary: "News reader that pulls live articles from a REST API with category filters, search and pagination.",

@@ -22,6 +22,8 @@ jobs:
       - run: npm run build
         env:
           NEXT_PUBLIC_SITE_URL: https://hasibulislamm.com
+          # Optional: Google Search Console HTML-tag code. Add it under GitHub repo > Settings > Secrets and variables > Actions > Variables as GSC_VERIFICATION.
+          NEXT_PUBLIC_GSC_VERIFICATION: ${{ vars.GSC_VERIFICATION }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
