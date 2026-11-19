@@ -24,7 +24,7 @@ export default function ContactForm() {
     setErrs(er); if (Object.keys(er).length) { setN((x) => x + 1); setState("idle"); return; }
     setState("sending");
     try {
-      const r = await fetch("https://formspree.io/f/YOUR_FORM_ID", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(v) });
+      const r = await fetch("https://formspree.io/f/mgakypnr", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(v) });
       const d = await r.json().catch(() => ({})); if (!r.ok) throw new Error(d.error || "Message not sent. Email me directly instead.");
       setState("ok"); setV(empty); // cleared only after a successful send
     } catch (x) { setMsg((x as Error).message || "Message not sent. Email me directly instead."); setState("fail"); /* text stays */ }
